@@ -42,6 +42,8 @@ try:
     emp_mcw = (config_obj.get("features","var61"))
     emp_mcw2 = (config_obj.get("features","var62"))
 
+    junks = (config_obj.get("features","junks"))
+
     inputPdfFolderPath = (config_obj.get("filepaths","inputPdfFolderPath"))
     ConvertedImgsPath = (config_obj.get("filepaths","ConvertedImgsPath"))
     inputImgsFolderPath = (config_obj.get("filepaths","inputImgsFolderPath"))
@@ -68,9 +70,11 @@ class ExtractW2data():
         self.emp_ssw=emp_ssw
         self.emp_mcw=emp_mcw
         self.emp_mcw2=emp_mcw2
+        self.junks=junks
         self.inputPdfFolderPath=inputPdfFolderPath
         self.ConvertedImgsPath=ConvertedImgsPath
         self.inputImgsFolderPath=inputImgsFolderPath
+
 
         self.logfilename=logfilename
         self.TaxStatementYear=["wage and tax","tax statement","w2 & earnings","earnings summary","w-2 tax statement","wage statement","form w-2","filed with employee federal tax return","form w-2 statement","form w-2 summary","w2 tax statement","form w2","form w2 statement","form w2 summary","omb no","local income tax"]
@@ -125,24 +129,30 @@ class ExtractW2data():
         return zeroIndexEmpl
 
     def extractEmp(self,empdata):
+        empAdd=""
         if len(empdata )>0:
             zeroIndexEmpl = self.removeJunk(" " + empdata[0] + " ")
+            empAdd = " ".join(empdata[1:])
+
             if len(zeroIndexEmpl) > 7:
                 for comSufx in self.CompanySuffixes:
                     if len(empdata) > 1 and comSufx in " " + empdata[1] + " ":
                         zeroIndexEmpl = zeroIndexEmpl + " " + empdata[1]
+                        empAdd=" ".join(empdata[1:])
                         break
 
-                return self.repeats(zeroIndexEmpl.strip())
+                return self.repeats(zeroIndexEmpl.strip()),empAdd
 
             else:
                 zeroIndexEmpl = self.removeJunk(" " + empdata[1] + " ")
                 for comSufx in self.CompanySuffixes:
                     if len(empdata) > 2 and comSufx in " " + empdata[2] + " ":
                         zeroIndexEmpl = zeroIndexEmpl + " " + empdata[1]
-                return self.repeats(zeroIndexEmpl.strip())
+                        empAdd=" ".join(empdata[2:])
+
+                return self.repeats(zeroIndexEmpl.strip()),empAdd
         else:
-            return ""
+            return "",empAdd
 
     def FilterData(self,Datalist, varlist):
         for er in Datalist[:]:
@@ -214,6 +224,18 @@ class ExtractW2data():
             return []
         except:
             return []
+
+
+    def removeEmployeeAddJunk(self,employeeAdd):
+        for eachjunk in self.junks:
+            if eachjunk in employeeAdd:
+                employeeAdd=employeeAdd.replace(eachjunk,"")
+        floatvalues = re.findall(r'[0-9]+[.]+[0-9]+', employeeAdd)
+        for eachfloat in  floatvalues:
+            employeeAdd=employeeAdd.replace(eachfloat,"")
+
+        return employeeAdd[:50]
+
 
     def ConvertPdfToImgs(self,eachpdf,page_num):
         PdfImgFolderPath=""
@@ -328,12 +350,12 @@ class ExtractW2data():
                 extracted_data["filename"] = ntpath.basename(foldername)+".pdf"
                 extracted_EmployerList = self.FilterData(employerName, [self.empr_name1, self.empr_name2])
                 #extracted_data["EmployerList"] = extracted_EmployerList
-                extracted_data[empr_name1] = self.extractEmp(extracted_EmployerList)
+                extracted_data[empr_name1],extracted_data["employerAdd"] = self.extractEmp(extracted_EmployerList)
 
                 extracted_EmployeeList = self.FilterData(employeeName, [self.emp_name1, self.emp_name1])
                 #extracted_data["EmployeeList"] = extracted_EmployeeList
-                extracted_data[self.emp_name1] = self.extractEmp(extracted_EmployeeList)
-
+                extracted_data[self.emp_name1],extracted_data["employeeAdd"] = self.extractEmp(extracted_EmployeeList)
+                extracted_data["employeeAdd"]=self.removeEmployeeAddJunk(extracted_data["employeeAdd"])
                 ListEmplyerId = self.FilterData(employerId, [self.emp_id])
                 empidList, isEmployerIdFound = self.getEmployerIdFirst(ListEmplyerId)
                 if isEmployerIdFound == True and len(empidList) > 0:
@@ -358,7 +380,7 @@ class ExtractW2data():
                 print()
                 pass
         #shutil.rmtree('../data/imgs')
-        pdfsOpCsv_file.writerow(extracted_data.values())
+        pdfsOpCsv_file.writerow([str(s).encode("utf-8") for s in extracted_data.values()] )
         #print(extracted_data)
         return (extracted_data)
 
@@ -448,11 +470,12 @@ class ExtractW2data():
 
             extracted_EmployerList = self.FilterData(employerName, [self.empr_name1, self.empr_name2])
             #extracted_data["EmployerList"] = extracted_EmployerList
-            extracted_data[empr_name1] = self.extractEmp(extracted_EmployerList)
+            extracted_data[empr_name1],extracted_data["employerAdd"] = self.extractEmp(extracted_EmployerList)
 
             extracted_EmployeeList = self.FilterData(employeeName, [self.emp_name1, self.emp_name1])
             #extracted_data["EmployeeList"] = extracted_EmployeeList
-            extracted_data[self.emp_name1] = self.extractEmp(extracted_EmployeeList)
+            extracted_data[self.emp_name1],extracted_data["employeeAdd"] = self.extractEmp(extracted_EmployeeList)
+            extracted_data["employeeAdd"] = self.removeEmployeeAddJunk(extracted_data["employeeAdd"])
 
             ListEmplyerId = self.FilterData(employerId, [self.emp_id])
             empidList, isEmployerIdFound = self.getEmployerIdFirst(ListEmplyerId)
@@ -478,7 +501,9 @@ class ExtractW2data():
             print()
             pass
         #shutil.rmtree('../data/imgs')
-        pdfsOpCsv_file.writerow(extracted_data.values())
+
+        pdfsOpCsv_file.writerow([str(s).encode("utf-8") for s in extracted_data.values()] )
+
         #print(extracted_data)
         return (extracted_data)
 
@@ -489,6 +514,9 @@ class ExtractW2data():
         # for xfeature in featurelist:
         #     tempfetaures[xfeature]=""
         tempfetaures["employer name"] = " "
+        tempfetaures["employer name"] = " "
+        tempfetaures["employerAdd"] = " "
+
         tempfetaures["employee name"] = " "
         tempfetaures["employer id number"] = " "
         tempfetaures["wages tips other comp"] = -9999.99
@@ -526,13 +554,16 @@ class ExtractW2data():
 if __name__== "__main__" :
     obj=ExtractW2data()
     strtTime=time.time()
-    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000jttNLQAY-00P4O00001JjOs8UAF-salvatore_rabito_w2_or_1040_or.PDF"
-    print(obj.process_w2(eachpdf,12))
-
+    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kAjdIQAS-00P4O00001JjRA3UAN-Matthew Hader Previous W2.jpg"
+    #print(obj.process_w2(eachpdf,1))
+    print(obj.extract_img_data(eachpdf))
     #imgsData=glob.glob("../data/w2_imgs/*.jpg") +glob.glob("../data/w2_imgs2/*.jpeg")+glob.glob("../data/w2_imgs2/*.png")
 
     # eachimg="/Users/rsachdeva/Documents/pythonProjs/w2_29Oct/W2_data/New_W2/0064O00000jfdbsQAA-00P4O00001Kmgr4UAB-Richard Winkleblack - W2 -1.jpg"
-    # y= obj.extract_img_data(eachimg)
-    # print(y)
-    # endTime=time.time()
-    # print(endTime-strtTime)
+    # files=["/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000aDmSjQAK-00P4O00001JkSvEUAV-chetram w2 2017.jpg","/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kI72JQAS-00P4O00001KCLuxUAH-w2 jeanne stock.jpg","/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kBEnEQAW-00P4O00001KBOs7UAH-w2.jpg","/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kAjdIQAS-00P4O00001JjRA3UAN-Matthew Hader Previous W2.jpg","/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kBCdgQAG-00P4O00001Jjv0AUAR-miguena 2018 w2.jpg","/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kIAogQAG-00P4O00001KCJk8UAH-devindra3w2.jpg",]
+    #
+    # for eachpdf1 in files:
+    #     y= obj.extract_img_data(eachpdf1)
+    #     print(y)
+    # # endTime=time.time()
+    # # print(endTime-strtTime)

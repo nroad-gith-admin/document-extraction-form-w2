@@ -8,6 +8,7 @@ This library implement algorithm for greetings messages.
 ####### Internal Library Import
 import configparser
 from extract_w2data import ExtractW2data
+import validateDetails as valobj
 import shutil, re
 
 ###### Generic Library Import
@@ -23,7 +24,6 @@ from flask import json
 from flask.globals import request
 import os
 
-testfile = open("../test_valiresults.csv", "a")
 
 config_file_loc = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "config", "config.cfg")
 if os.path.isfile(config_file_loc) == False:
@@ -60,101 +60,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def year_response(responseYear):
-    if len(responseYear) == 0:
-        return 0, "Fail:Value not Extracted"
-    if isinstance(responseYear, list) and len(responseYear) > 0:
-        responseYear = responseYear[0]
-    elif isinstance(responseYear, list) and len(responseYear) == 0:
-        return 0, "Fail:Value not Extracted"
-    responseYear = (responseYear.replace(" ", ""))
-    if len(responseYear) == 4 and isinstance(int(responseYear), int):
-        return int(responseYear), "Pass"
-    else:
-        return 0, "Fail:Value not Extracted"
 
 
-def wages_response(wages):
-    if wages == 0:
-        return 0.0, "Pass"
-    elif wages == -9999.99:
-        return -9999.99, "Fail:Value not Extracted"
-
-    wages = wages.replace(" ", "")
-    if re.findall(r"\s+[0-9]+\s*\.\s*[0-9]{2}\s+", " " + str(wages) + " ") or int(wages) == 0:
-        return float("{0:.2f}".format(float(wages))), "Pass"
-
-    else:
-        return -9999.99, "Fail:Value not Extracted"
-
-
-def empid_response(empidres):
-    if len(empidres) == 0:
-        return "", "Fail:Value not Extracted"
-
-    if isinstance(empidres, list) and len(empidres) > 0:
-        empidres = empidres[0]
-    elif isinstance(empidres, list) and len(empidres) == 0:
-        return "", "Fail:Value not Extracted"
-
-    empidres = empidres.replace(" ", "")
-
-    if re.findall("\s+[0-9]{2}\s*\-\s*[0-9]{7}\s+", " " + empidres + " ") or re.findall("\s+[0-9]{9}\s+",
-                                                                                        " " + empidres + " "):
-        return empidres, "Pass"
-    else:
-        return "", "Fail:Value not Extracted"
-
-
-def w2_str_features(responseFeature, mincharlimit):
-    if isinstance(responseFeature, str) == True and len(responseFeature) > mincharlimit:
-        return responseFeature, "Pass"
-    else:
-        return "", "Fail:Value not Extracted"
-
-
-def validate_response(responsedata, inpfilename, uniqid, docid):
-    validated_res = {}
-    validated_res["documentId"] = docid
-    #validated_res["filename"] = inpfilename
-    #validated_res["uniqueId"], validated_res["uniqueIdStatus"] = w2_str_features(uniqid, mincharlimit=17)
-    validated_res["employerName"], validated_res["employerNameStatus"] = w2_str_features(responsedata["employer name"],
-                                                                                         mincharlimit=3)
-    validated_res["employeeName"], validated_res["employeeNameStatus"] = w2_str_features(responsedata["employee name"],
-                                                                                         mincharlimit=5)
-    #validated_res["filename"], validated_res["filenameStatus"] = w2_str_features(inpfilename, mincharlimit=21)
-    validated_res["year"], validated_res["yearStatus"] = year_response(responsedata["year"])
-    validated_res["employerIdNumber"], validated_res["employerIdNumberStatus"] = empid_response(
-        responsedata["employer id number"])
-    validated_res["wagesTipsOtherComp"], validated_res["wagesTipsOtherCompStatus"] = wages_response(
-        responsedata["wages tips other comp"])
-    validated_res["socialSecurityWages"], validated_res["socialSecurityWagesStatus"] = wages_response(
-        responsedata["social security wages"])
-    validated_res["medicareWageAndTips"], validated_res["medicareWageAndTipsStatus"] = wages_response(
-        responsedata["medicare wages and tips"])
-    testfile.write(str(inpfilename) + "," + str(uniqid) + "," +
-                   str(responsedata["employer name"]) + "," + str(validated_res["employerName"]) + "," +
-                   str(responsedata["employee name"]) + "," + str(validated_res["employeeName"]) + "," +
-                   str(responsedata["year"]) + "," + str(validated_res["year"]) + "," +
-                   str(responsedata["employer id number"]) + "," + str(validated_res["employerIdNumber"]) + "," +
-                   str(responsedata["wages tips other comp"]) + "," + str(validated_res["wagesTipsOtherComp"]) + "," +
-                   str(responsedata["social security wages"]) + "," + str(validated_res["socialSecurityWages"]) + "," +
-                   str(responsedata["medicare wages and tips"]) + "," + str(
-        validated_res["medicareWageAndTips"]) + "," +
-                   "\n")
-    if validated_res["employeeNameStatus"] != "Pass" and validated_res["wagesTipsOtherCompStatus"] != "Pass":
-        validated_res["docStatus"] = "Fail"
-    elif validated_res["employeeNameStatus"] == "Pass" and validated_res["wagesTipsOtherCompStatus"] == "Pass" and \
-            validated_res["yearStatus"] == "Pass":
-        validated_res["docStatus"] = "Success"
-    elif (validated_res["employeeNameStatus"] == "Pass" and validated_res["wagesTipsOtherCompStatus"] == "Pass") or (
-            validated_res["employeeNameStatus"] and validated_res["yearStatus"] == "Pass") or (
-            validated_res["wagesTipsOtherCompStatus"] == "Pass" and validated_res["yearStatus"] == "Pass"):
-        validated_res["docStatus"] = "Partial Success"
-    else:
-        validated_res["docStatus"] = "Partial Success"
-
-    return validated_res
 
 
 #
@@ -219,7 +126,7 @@ def processw2Api():
                 if page_num[indx] not in range(1, 1000):
                     page_num[indx]=1
                 responseData = w2_obj.process_w2(inpfilename,page_num[indx])
-                validated_response = validate_response(responseData, inpfilename, uniqid, documentIds[indx])
+                validated_response = valobj.validate_response(responseData, inpfilename, uniqid, documentIds[indx])
                 apireponse = {"status": 200, "error": ""}
                 Merge(apireponse, validated_response)
                 apireponseList.append(apireponse)
@@ -229,7 +136,7 @@ def processw2Api():
 
             elif pfile_extension.lower() in [".jpg", ".jpeg", ".png"]:
                 responseData = w2_obj.extract_img_data(inpfilename)
-                validated_response = validate_response(responseData, inpfilename, uniqid, documentIds[indx])
+                validated_response = valobj.validate_response(responseData, inpfilename, uniqid, documentIds[indx])
                 apireponse = {"status": 200, "error": ""}
                 Merge(apireponse, validated_response)
                 apireponseList.append(apireponse)
@@ -247,7 +154,7 @@ def processw2Api():
             apireponse = {"status": 110, "error": 'W2  extraction error'}
             Merge(apireponse, {})
             apireponseList.append(apireponse)
-
+    #print(apireponseList)
     return json.dumps({"data": apireponseList})
 
 

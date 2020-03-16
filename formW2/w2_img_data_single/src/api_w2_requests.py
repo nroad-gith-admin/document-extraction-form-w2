@@ -1,10 +1,9 @@
 import requests
 import os,glob
-url="http://0.0.0.0:1999/extract-w2-data"
+url="http://0.0.0.0:8081/extract-w2-data"
 import json
 import csv
-
-employ_data = open('../data/EmployData_27012020_5.csv', 'w')
+employ_data = open('../data/EmployData_06032020_2.csv', 'w')
 
 csvwriter = csv.writer(employ_data)
 
@@ -22,7 +21,8 @@ def requestResponse(filesData,count):
 
         count += 1
     x1=list(files.values())+list(emp_data.values())
-    csvwriter.writerow(x1)
+
+    csvwriter.writerow([str(s).encode("utf-8") for s in x1])
 
 
 InputFiles=glob.glob("/Users/rsachdeva/Documents/pythonProjs/W2/*.*")
@@ -36,7 +36,7 @@ for indx,eachfile in enumerate(InputFiles):
 # RunFiles = list(set(filesProcess) & set(checkFiles))
 #print(len(filesProcess), len(checkFiles), len(RunFiles))
 
-with open("/Users/rsachdeva/Documents/pythonProjs/formW2/w2_img_data_single/data/W2CLassifyResults.csv","r") as fl:
+with open("../data/W2CLassifyResults.csv","r") as fl:
     requestsdata=fl.readlines()
 
 
@@ -58,10 +58,7 @@ for indx, eachfile in enumerate(InputFiles):
             print(indx)
             eachfile="/Users/rsachdeva/Documents/pythonProjs/W2/"+str(os.path.basename(eachfile))
 
-            filesData={"data":[{"filePath":eachfile,"documentId":indx,"page_num":page_num+1}]}
+            filesData={"data":[{"filePath":eachfile,"documentId":indx,"pageNum":page_num+1}]}
             requestResponse(filesData,indx)
 
 employ_data.close()
-
-
-

@@ -1,37 +1,19 @@
-from PyPDF2 import PdfFileReader
+import re
+ele='nee capra gross pay 46769.44 46769.44 46769.44 46769.44 uluhi 96825 plus third party sick pay 186000 1860.00 1860.00 1860.00'
 
-def extract_information(pdf_path):
-    with open(pdf_path, 'rb') as f:
-        pdf = PdfFileReader(f)
-        information = pdf.getDocumentInfo()
-        number_of_pages = pdf.getNumPages()
+junks=["state income tax","a. employee soc. sec. no.","7 social security tips 8 allocated tips"]
 
-    txt = f"""
-    Information about {pdf_path}: 
+def removeEmployeeAddJunk( employeeAdd):
+    for eachjunk in junks:
+        if eachjunk in employeeAdd:
+            employeeAdd = employeeAdd.replace(eachjunk, "")
+    floatvalues = re.findall(r'[0-9]+[.]+[0-9]+', employeeAdd)
+    for eachfloat in floatvalues:
+        employeeAdd = employeeAdd.replace(eachfloat, "")
 
-    Author: {information.author}
-    Creator: {information.creator}
-    Producer: {information.producer}
-    Subject: {information.subject}
-    Title: {information.title}
-    Number of pages: {number_of_pages}
-    """
+    return employeeAdd[:50].strip()
 
-    print(txt)
-    return information
 
-if __name__ == '__main__':
-    path = '/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000aDlOMQA0-00P4O00001JkXqNUAV-Brenton Dyer - W2.pdf'
-    print(extract_information(path))
-    import PyPDF2
+print(removeEmployeeAddJunk( ele))
 
-    pdf_file = open(path,"ab")
-    # pdf_file.seek(0, 2)
-    # pdf_file.seek(-3, 2)
-    # pdf_file.seek(-1, 2)
 
-    read_pdf = PyPDF2.PdfFileReader(pdf_file)
-    number_of_pages = read_pdf.getNumPages()
-    page = read_pdf.getPage(0)
-    page_content = page.extractText()
-    print(page_content)
