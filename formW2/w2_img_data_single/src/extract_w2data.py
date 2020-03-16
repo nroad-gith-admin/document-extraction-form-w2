@@ -263,6 +263,11 @@ class ExtractW2data():
             pass
         return True
 
+    def removeRepeats(self,empList):
+        removedRepeats=[]
+        for x in empList:
+            removedRepeats.append(self.repeats(x))
+        return removedRepeats
 
     def extractdata(self,foldername):
         extracted_data = {}
@@ -310,11 +315,12 @@ class ExtractW2data():
                                 W2YearDate, isYearFound = self.findYear(W2Year, isYearFound)
 
                     if (self.empr_name1 in eachData or self.empr_name2 in eachData) and (isEmployerNameFound == False):
-                        employerName = employerName + text_seg[varIndex + 1:varIndex + 4]
+                        employerName = list(set(employerName + text_seg[varIndex + 1:varIndex + 4]))
                         isEmployerNameFound = True
 
                     if (self.emp_name1 in eachData or self.emp_name2 in eachData) and (isEmployeeNameFound == False):
-                        employeeName = employeeName + text_seg[varIndex + 1:varIndex + 4]
+                        employeeName = list(set(employeeName + text_seg[varIndex + 1:varIndex + 4]))
+                        employeeName = self.removeRepeats(employeeName)
                         isEmployeeNameFound = True
 
                     if (self.emp_id in eachData) and (isEmployerIdFound == False):
@@ -355,7 +361,7 @@ class ExtractW2data():
                 extracted_EmployeeList = self.FilterData(employeeName, [self.emp_name1, self.emp_name1])
                 #extracted_data["EmployeeList"] = extracted_EmployeeList
                 extracted_data[self.emp_name1],extracted_data["employeeAdd"] = self.extractEmp(extracted_EmployeeList)
-                extracted_data["employeeAdd"]=self.removeEmployeeAddJunk(extracted_data["employeeAdd"])
+                #extracted_data["employeeAdd"]=self.removeEmployeeAddJunk(extracted_data["employeeAdd"])
                 ListEmplyerId = self.FilterData(employerId, [self.emp_id])
                 empidList, isEmployerIdFound = self.getEmployerIdFirst(ListEmplyerId)
                 if isEmployerIdFound == True and len(empidList) > 0:
@@ -429,11 +435,14 @@ class ExtractW2data():
                             W2YearDate, isYearFound = self.findYear(W2Year, isYearFound)
 
                 if (self.empr_name1 in eachData or self.empr_name2 in eachData) and (isEmployerNameFound == False):
-                    employerName = employerName + text_seg[varIndex + 1:varIndex + 4]
+                    employerName = list(set(employerName + text_seg[varIndex + 1:varIndex + 4]))
                     isEmployerNameFound = True
 
                 if (self.emp_name1 in eachData or self.emp_name2 in eachData) and (isEmployeeNameFound == False):
-                    employeeName = employeeName + text_seg[varIndex + 1:varIndex + 4]
+                    employeeName = list(set(employeeName + text_seg[varIndex + 1:varIndex + 4]))
+                    print(employeeName)
+                    employeeName = self.removeRepeats(employeeName)
+                    print(employeeName)
                     isEmployeeNameFound = True
 
                 if (self.emp_id in eachData) and (isEmployerIdFound == False):
@@ -554,9 +563,9 @@ class ExtractW2data():
 if __name__== "__main__" :
     obj=ExtractW2data()
     strtTime=time.time()
-    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000kAjdIQAS-00P4O00001JjRA3UAN-Matthew Hader Previous W2.jpg"
-    #print(obj.process_w2(eachpdf,1))
-    print(obj.extract_img_data(eachpdf))
+    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/filteredFiles/filtered_w2/classA/41_0064O00000kHZmOQAW-00P4O00001KCA4XUAX-Raechel West W2.pdf"
+    print(obj.process_w2(eachpdf,1))
+    #print(obj.extract_img_data(eachpdf))
     #imgsData=glob.glob("../data/w2_imgs/*.jpg") +glob.glob("../data/w2_imgs2/*.jpeg")+glob.glob("../data/w2_imgs2/*.png")
 
     # eachimg="/Users/rsachdeva/Documents/pythonProjs/w2_29Oct/W2_data/New_W2/0064O00000jfdbsQAA-00P4O00001Kmgr4UAB-Richard Winkleblack - W2 -1.jpg"

@@ -3,7 +3,7 @@ import os,glob
 url="http://0.0.0.0:8081/extract-w2-data"
 import json
 import csv
-employ_data = open('../data/EmployData_06032020_2.csv', 'w')
+employ_data = open('../data/EmployData_15032020_21.csv', 'w')
 
 csvwriter = csv.writer(employ_data)
 
@@ -45,7 +45,8 @@ for indx, eachfile in enumerate(InputFiles):
         x=x.split(",")
         filn=x[0]
         inpf=str(os.path.basename(eachfile))
-        if filn.lower()==inpf.lower():
+        if filn.lower()==inpf.lower() and '1040' not in eachfile:
+
             title = x[1]
             if title=="w2":
                 try:

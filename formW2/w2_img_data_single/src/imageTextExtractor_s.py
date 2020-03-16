@@ -505,7 +505,7 @@ class ImageTextExtractor:
 
 
 if __name__ == "__main__":
-    pdfFile="input/W2/CCN-1234293734.pdf"
+    pdfFile="/Users/rsachdeva/Documents/pythonProjs/W2/filteredFiles/filtered_w2/classB/2_0064O00000k8xqdQAA-00P4O00001JjcgmUAB-Timothy Lawyer - W2.jpg"
     #imagePdf="../input/W2/pdf/James Kinane 2 W2 and bank transaction summary.pdf"
     Entities={}
     obj = ImageTextExtractor()
