@@ -1,5 +1,8 @@
 import re
 
+tagRe = re.compile(r'\\x.*?(2)')
+
+
 def empid_response(empidres):
     if len(empidres) == 0:
         return "", "Fail:Value not Extracted"
@@ -19,6 +22,7 @@ def empid_response(empidres):
 
 def w2_str_features(responseFeature, mincharlimit):
     if isinstance(responseFeature, str) == True and len(responseFeature) > mincharlimit:
+        responseFeature=tagRe.sub('', responseFeature)
         return responseFeature, "Pass"
     else:
         return "", "Fail:Value not Extracted"

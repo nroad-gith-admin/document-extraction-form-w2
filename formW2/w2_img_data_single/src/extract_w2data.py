@@ -77,7 +77,7 @@ class ExtractW2data():
 
 
         self.logfilename=logfilename
-        self.TaxStatementYear=["wage and tax","tax statement","w2 & earnings","earnings summary","w-2 tax statement","wage statement","form w-2","filed with employee federal tax return","form w-2 statement","form w-2 summary","w2 tax statement","form w2","form w2 statement","form w2 summary","omb no","local income tax"]
+        self.TaxStatementYear=["w-2 and earnings","w2 and earnings","wage and tax","tax statement","w2 & earnings","earnings summary","w-2 tax statement","wage statement","form w-2","filed with employee federal tax return","form w-2 statement","form w-2 summary","w2 tax statement","form w2","form w2 statement","form w2 summary","omb no","local income tax"]
         self.junkHeaders=["11 nonqualified plans","11 nonqualified plans","tax withheld withheld","fed income","fed. income","medicare tax","omb no","omb number","employer id number","w-2 and earnings summary","this summary is included with","social security"," summary wages"]
         self.CompanySuffixes=[" inc "," org "," company "," bank "," llc "," co. "," corporation "," group "]
 
@@ -198,7 +198,7 @@ class ExtractW2data():
             return "", False
 
     def findYear(self,yearData, isYearFound2):
-        StatementYear = ''
+        StatementYear = []
         for eachLine in yearData:
             match = re.match(r'(.*(\b[2]\s*[0]\s*[0-9]{1}\s*[0-9]{1}\b))', " " + eachLine + " ")
             # match = re.match(r'(.*(\b[0-9]{2}-[0-9]{7}\b))', x)
@@ -375,7 +375,7 @@ class ExtractW2data():
                 extracted_data[self.emp_ssw] = self.WagesFound(employerWages2)
                 extracted_data[self.emp_mcw] = self.WagesFound(employerWages3)
 
-                if len([W2YearDate]) > 0:
+                if len(W2YearDate) > 0 :
                     extracted_data["year"] = W2YearDate
                 else:
                     extracted_data["year"] = StatementYear2
@@ -440,9 +440,7 @@ class ExtractW2data():
 
                 if (self.emp_name1 in eachData or self.emp_name2 in eachData) and (isEmployeeNameFound == False):
                     employeeName = list(set(employeeName + text_seg[varIndex + 1:varIndex + 4]))
-                    print(employeeName)
                     employeeName = self.removeRepeats(employeeName)
-                    print(employeeName)
                     isEmployeeNameFound = True
 
                 if (self.emp_id in eachData) and (isEmployerIdFound == False):
@@ -499,7 +497,7 @@ class ExtractW2data():
             extracted_data[self.emp_ssw] = self.WagesFound(employerWages2)
             extracted_data[self.emp_mcw] = self.WagesFound(employerWages3)
 
-            if len([W2YearDate]) > 0:
+            if len(W2YearDate) > 0:
                 extracted_data["year"] = W2YearDate
             else:
                 extracted_data["year"] = StatementYear2
@@ -563,8 +561,8 @@ class ExtractW2data():
 if __name__== "__main__" :
     obj=ExtractW2data()
     strtTime=time.time()
-    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/filteredFiles/filtered_w2/classA/41_0064O00000kHZmOQAW-00P4O00001KCA4XUAX-Raechel West W2.pdf"
-    print(obj.process_w2(eachpdf,1))
+    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000k6gEFQAY-00P4O00001KByHTUA1-check stubs _ w2.pdf"
+    print(obj.process_w2(eachpdf,3))
     #print(obj.extract_img_data(eachpdf))
     #imgsData=glob.glob("../data/w2_imgs/*.jpg") +glob.glob("../data/w2_imgs2/*.jpeg")+glob.glob("../data/w2_imgs2/*.png")
 
