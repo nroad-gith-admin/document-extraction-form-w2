@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8dadbc37-895d-463d-9a90-2ef6401209a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/data/EmployData_06032020_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020_21.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/test2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,87 +14,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
+        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
-              <folding>
-                <element signature="e#249#268#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="488" selection-start-line="488" selection-end-line="488" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="499" column="29" selection-start-line="499" selection-start-column="29" selection-end-line="499" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/fitz/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/fitz/fitz.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="2242" column="13" selection-start-line="2242" selection-start-column="8" selection-end-line="2242" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="281">
+              <caret line="22" column="21" lean-forward="true" selection-end-line="90" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_18032020.csv">
-          <provider selected="true" editor-type-id="csv-text-editor" />
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/test2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+            <state relative-caret-position="814">
+              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -161,16 +85,16 @@
         <option value="$PROJECT_DIR$/w2_img_data_single/config/config.cfg" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py" />
-        <option value="$PROJECT_DIR$/w2_img_data_single/src/test2.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py" />
+        <option value="$PROJECT_DIR$/w2_img_data_single/src/test2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="983" />
+    <option name="height" value="974" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -341,6 +265,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="983" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -540,10 +465,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/test_valiresults.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_28022020.csv" />
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_06032020.csv" />
@@ -554,12 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_06032020_2.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_06032020_2.csv" />
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2690">
@@ -574,17 +494,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020.csv" />
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        <state relative-caret-position="2145">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
+          <folding>
+            <element signature="e#249#268#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7320">
+          <caret line="488" selection-start-line="488" selection-end-line="488" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7485">
+          <caret line="499" column="29" selection-start-line="499" selection-start-column="29" selection-end-line="499" selection-end-column="29" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/fitz/__init__.py">
@@ -596,46 +528,15 @@
     </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/fitz/fitz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="33570">
           <caret line="2242" column="13" selection-start-line="2242" selection-start-column="8" selection-end-line="2242" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/test2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="488" selection-start-line="488" selection-end-line="488" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="499" column="29" selection-start-line="499" selection-start-column="29" selection-end-line="499" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="e#249#268#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state relative-caret-position="615">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -643,9 +544,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_18032020.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="22" column="21" lean-forward="true" selection-end-line="90" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        </state>
       </provider>
     </entry>
   </component>
