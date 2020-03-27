@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8dadbc37-895d-463d-9a90-2ef6401209a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/test2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="22" column="21" lean-forward="true" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="330">
+              <caret line="22" column="21" selection-end-line="90" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -551,8 +550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="22" column="21" lean-forward="true" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="330">
+          <caret line="22" column="21" selection-end-line="90" selection-end-column="24" />
         </state>
       </provider>
     </entry>
