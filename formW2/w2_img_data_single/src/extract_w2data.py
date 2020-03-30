@@ -276,7 +276,7 @@ class ExtractW2data():
         employerId = []
         employerId2 = []
         W2Year = []
-
+        StatementYear2=[]
         W2YearDate = []
 
         isEmployerNameFound = False
@@ -400,7 +400,7 @@ class ExtractW2data():
         W2Year = []
 
         W2YearDate = []
-
+        StatementYear2=[]
         isEmployerNameFound = False
         isEmployeeNameFound = False
         isEmployerIdFound = False

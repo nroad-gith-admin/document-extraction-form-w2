@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dadbc37-895d-463d-9a90-2ef6401209a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +21,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/test2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="814">
               <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="278" column="25" selection-start-line="278" selection-start-column="25" selection-end-line="278" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
+              <folding>
+                <element signature="e#249#268#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +87,9 @@
       <find>open(</find>
       <find>print</find>
       <find>TaxStatementYear</find>
-      <find>StatementYear2</find>
       <find>W2YearDate</find>
+      <find>fit</find>
+      <find>StatementYear2</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/w2_img_data_single</dir>
@@ -84,9 +106,9 @@
         <option value="$PROJECT_DIR$/w2_img_data_single/config/config.cfg" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py" />
-        <option value="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/test2.py" />
+        <option value="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" />
       </list>
     </option>
   </component>
@@ -155,7 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.api_w2_requests">
+  <component name="RunManager" selected="Python.w2_api_serviceV2">
     <configuration name="api_w2_requests" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="formW2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -242,8 +264,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.api_w2_requests" />
         <item itemvalue="Python.w2_api_serviceV2" />
+        <item itemvalue="Python.api_w2_requests" />
         <item itemvalue="Python.extract_w2data" />
         <item itemvalue="Python.test2" />
       </list>
@@ -263,15 +285,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="983" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="979" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32996634" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32996634" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32919955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39955106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -494,27 +516,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/EmployData_15032020.csv" />
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="e#249#268#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7320">
           <caret line="488" selection-start-line="488" selection-end-line="488" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7485">
-          <caret line="499" column="29" selection-start-line="499" selection-start-column="29" selection-end-line="499" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -559,6 +564,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="814">
           <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="e#249#268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="278" column="25" selection-start-line="278" selection-start-column="25" selection-end-line="278" selection-end-column="25" />
         </state>
       </provider>
     </entry>
