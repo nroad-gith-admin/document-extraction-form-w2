@@ -541,8 +541,6 @@ class ExtractW2data():
                 imgPdfsPath = os.path.basename(pfilename)
                 fetaures = self.extractdata(imgPdfsPath)
                 shutil.rmtree(self.ConvertedImgsPath)
-
-
                 if fetaures['year']=='' or fetaures['year']==[]:
                     year3=self.findyear3(eachpdf)
                     if len(year3)>0:
@@ -561,7 +559,7 @@ class ExtractW2data():
 if __name__== "__main__" :
     obj=ExtractW2data()
     strtTime=time.time()
-    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/0064O00000k6gEFQAY-00P4O00001KByHTUA1-check stubs _ w2.pdf"
+    eachpdf="/Users/rsachdeva/Documents/pythonProjs/W2/test_batch198/0064O00000k6gEFQAY-00P4O00001KCDu7UAH-check stubs & w2.pdf"
     print(obj.process_w2(eachpdf,3))
     #print(obj.extract_img_data(eachpdf))
     #imgsData=glob.glob("../data/w2_imgs/*.jpg") +glob.glob("../data/w2_imgs2/*.jpeg")+glob.glob("../data/w2_imgs2/*.png")

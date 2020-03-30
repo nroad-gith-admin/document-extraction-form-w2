@@ -123,9 +123,9 @@ def processw2Api():
             pfilename, pfile_extension = os.path.splitext(inpfilename)
             uniqid = os.path.basename(pfilename).split("-")[0]
             if pfile_extension.lower() == ".pdf":
-                if page_num[indx] not in range(1, 1000):
+                if int(page_num[indx]) not in range(1, 1000):
                     page_num[indx]=1
-                responseData = w2_obj.process_w2(inpfilename,page_num[indx])
+                responseData = w2_obj.process_w2(inpfilename,int(page_num[indx]))
                 validated_response = valobj.validate_response(responseData, inpfilename, uniqid, documentIds[indx])
                 apireponse = {"status": 200, "error": ""}
                 Merge(apireponse, validated_response)

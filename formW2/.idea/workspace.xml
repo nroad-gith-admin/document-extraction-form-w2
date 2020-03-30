@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dadbc37-895d-463d-9a90-2ef6401209a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +35,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="278" column="25" selection-start-line="278" selection-start-column="25" selection-end-line="278" selection-end-column="25" />
+            <state relative-caret-position="242">
+              <caret line="543" selection-start-line="543" selection-end-line="543" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///anaconda3/envs/python3/lib/python3.6/posixpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="145" selection-start-line="145" selection-end-line="145" />
             </state>
           </provider>
         </entry>
@@ -42,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="105" selection-start-line="105" selection-end-line="105" />
+            <state relative-caret-position="204">
+              <caret line="124" column="12" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
               <folding>
                 <element signature="e#249#268#0" expanded="true" />
               </folding>
@@ -102,12 +113,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/config/config.cfg" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/imageTextExtractor_s.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/validateDetails.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/api_w2_requests.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/test2.py" />
+        <option value="$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py" />
         <option value="$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py" />
       </list>
     </option>
@@ -265,8 +276,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.w2_api_serviceV2" />
-        <item itemvalue="Python.api_w2_requests" />
         <item itemvalue="Python.extract_w2data" />
+        <item itemvalue="Python.api_w2_requests" />
         <item itemvalue="Python.test2" />
       </list>
     </recent_temporary>
@@ -294,7 +305,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32996634" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32919955" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955106" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990981" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -372,7 +383,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py</url>
-          <line>545</line>
+          <line>543</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -405,53 +416,68 @@
           <line>378</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py</url>
+          <line>541</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>W2YearDate</expression-string>
+        <expression-string>page_num[indx]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>StatementYear2</expression-string>
+        <expression-string>page_num[3]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>W2Year</expression-string>
+        <expression-string>page_num</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>text_segments</expression-string>
+        <expression-string>int(page_num[indx]) not in range(1,1000)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>pageData.getText(&quot;Text&quot;)</expression-string>
+        <expression-string>int(page_num[indx]) in range(1,1000)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>pageData</expression-string>
+        <expression-string>int(page_num[indx])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>fetaures['year']</expression-string>
+        <expression-string>indx</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>features['year']</expression-string>
+        <expression-string>int(page_num[indx]) not in range(1, 1000)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>extracted_data</expression-string>
+        <expression-string>page_num[indx] not in range(1, 1000)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -567,10 +593,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/w2_img_data_single/data/imgs/0064O00000k6gEFQAY-00P4O00001KCDu7UAH-check stubs &amp; w2/file_0.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file:///anaconda3/envs/python3/lib/python3.6/posixpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/w2_api_serviceV2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        <state relative-caret-position="204">
+          <caret line="124" column="12" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
           <folding>
             <element signature="e#249#268#0" expanded="true" />
           </folding>
@@ -579,8 +615,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/w2_img_data_single/src/extract_w2data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="278" column="25" selection-start-line="278" selection-start-column="25" selection-end-line="278" selection-end-column="25" />
+        <state relative-caret-position="242">
+          <caret line="543" selection-start-line="543" selection-end-line="543" />
         </state>
       </provider>
     </entry>
